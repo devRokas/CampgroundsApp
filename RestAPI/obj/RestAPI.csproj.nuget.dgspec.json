@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 54. 2021-09-22/CampgroundsApp/RestAPI/RestAPI.csproj": {}
+    "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/RestAPI/RestAPI.csproj": {}
   },
   "projects": {
-    "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 54. 2021-09-22/CampgroundsApp/RestAPI/RestAPI.csproj": {
+    "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 54. 2021-09-22/CampgroundsApp/RestAPI/RestAPI.csproj",
-        "projectName": "RestAPI",
-        "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 54. 2021-09-22/CampgroundsApp/RestAPI/RestAPI.csproj",
+        "projectUniqueName": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/Contracts.csproj",
+        "projectName": "Contracts",
+        "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/Contracts.csproj",
         "packagesPath": "/Users/rokasdambrauskas/.nuget/packages/",
-        "outputPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 54. 2021-09-22/CampgroundsApp/RestAPI/obj/",
+        "outputPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/rokasdambrauskas/.nuget/NuGet/NuGet.Config"
@@ -26,6 +26,208 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Domain/Domain.csproj",
+        "packagesPath": "/Users/rokasdambrauskas/.nuget/packages/",
+        "outputPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/rokasdambrauskas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/Persistence.csproj",
+        "packagesPath": "/Users/rokasdambrauskas/.nuget/packages/",
+        "outputPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/rokasdambrauskas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.90, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.26, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/RestAPI/RestAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/RestAPI/RestAPI.csproj",
+        "projectName": "RestAPI",
+        "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/RestAPI/RestAPI.csproj",
+        "packagesPath": "/Users/rokasdambrauskas/.nuget/packages/",
+        "outputPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/RestAPI/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/rokasdambrauskas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/Contracts.csproj": {
+                "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/Contracts.csproj"
+              },
+              "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Domain/Domain.csproj": {
+                "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Domain/Domain.csproj"
+              },
+              "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/Persistence.csproj": {
+                "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/Persistence.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
