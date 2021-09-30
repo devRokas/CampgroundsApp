@@ -5,8 +5,8 @@ namespace Domain.Clients.Firebase
 {
     public interface IFirebaseClient
     {
-        Task<SignUpResponse> SignUpAsync(string email, string password);
+        Task<FirebaseSignUpResponse> SignUpAsync(string email, string password);
 
-        Task<SignInResponse> SignInAsync(string email, string password);
+        Task<FirebaseSignInResponse> SignInAsync(string email, string password);
     }
 }

@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Domain.Clients.Firebase.Models
 {
-    public class SignUpResponse
+    public class FirebaseSignInResponse
     {
         [JsonPropertyName("idToken")]
         public string IdToken { get; set; }

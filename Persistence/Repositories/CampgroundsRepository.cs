@@ -7,7 +7,7 @@ namespace Persistence.Repositories
 {
     public class CampgroundsRepository : ICampgroundsRepository
     {
-        private const string TableName = "Campgrounds";
+        private const string CampgroundsTableName = "Campgrounds";
         private readonly ISqlClient _sqlClient;
 
         public CampgroundsRepository(ISqlClient sqlClient)
@@ -17,7 +17,7 @@ namespace Persistence.Repositories
 
         public Task<int> SaveOrUpdateAsync(CampgroundReadModel model)
         {
-            var sql = @$"INSERT INTO {TableName} (Id, UserId, Name, Price, Description, DateCreated) 
+            var sql = @$"INSERT INTO {CampgroundsTableName} (Id, UserId, Name, Price, Description, DateCreated) 
                         VALUES (@Id, @UserId, @Name, @Price, @Description, @DateCreated)
                         ON DUPLICATE KEY UPDATE Name = @Name, Price = @Price, Description = @Description";
 
@@ -26,12 +26,19 @@ namespace Persistence.Repositories
 
         public Task<IEnumerable<CampgroundReadModel>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var sql = $"SELECT * FROM {CampgroundsTableName}";
+
+            return _sqlClient.QueryAsync<CampgroundReadModel>(sql);
         }
 
-        public Task<CampgroundReadModel> GetAsync(Guid id, Guid userId)
+        public Task<CampgroundReadModel> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var sql = $"SELECT * FROM {CampgroundsTableName} WHERE Id = @Id";
+
+            return _sqlClient.QuerySingleOrDefaultAsync<CampgroundReadModel>(sql, new
+            {
+                Id = id
+            });
         }
 
         public Task<int> DeleteAsync(Guid id)

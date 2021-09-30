@@ -23,6 +23,8 @@ namespace Persistence
         {
             services.AddSingleton<IUsersRepository, UsersRepository>();
             services.AddSingleton<ICampgroundsRepository, CampgroundsRepository>();
+            services.AddSingleton<ICommentsRepository, CommentsRepository>();
+            services.AddSingleton<IImagesRepository, ImagesRepository>();
 
             return services;
         }

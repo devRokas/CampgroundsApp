@@ -77,7 +77,14 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/Contracts.csproj": {
+                "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Contracts/Contracts.csproj"
+              },
+              "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/Persistence.csproj": {
+                "projectPath": "/Users/rokasdambrauskas/Desktop/BIT .NET COURSE/Lectures/Lecture 57. 2021-09-29/CampgroundsApp/Persistence/Persistence.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -90,6 +97,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[5.0.0, )"

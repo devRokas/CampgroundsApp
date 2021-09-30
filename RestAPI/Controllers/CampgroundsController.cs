@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contracts.Models.Request;
@@ -16,16 +17,80 @@ namespace RestAPI.Controllers
     {
         private readonly ICampgroundsRepository _campgroundsRepository;
         private readonly IUsersRepository _usersRepository;
+        private readonly ICommentsRepository _commentsRepository;
+        private readonly IImagesRepository _imagesRepository;
 
-        public CampgroundsController(ICampgroundsRepository campgroundsRepository, IUsersRepository usersRepository)
+        public CampgroundsController(
+            ICampgroundsRepository campgroundsRepository, 
+            IUsersRepository usersRepository,
+            ICommentsRepository commentsRepository,
+            IImagesRepository imagesRepository)
         {
             _campgroundsRepository = campgroundsRepository;
             _usersRepository = usersRepository;
+            _commentsRepository = commentsRepository;
+            _imagesRepository = imagesRepository;
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<CampgroundResponse>> Get(Guid id)
+        {
+            var campground = await _campgroundsRepository.GetAsync(id);
+            var comments = await _commentsRepository.GetAsync(id);
+            var images = await _imagesRepository.GetAsync(id);
+
+            var commentsResponse = comments.Select(comment => new CommentResponse
+            {
+                Id = comment.Id,
+                Rating = comment.Rating,
+                Text = comment.Text,
+                UserId = comment.UserId,
+                DateCreated = comment.DateCreated
+            });
+            
+            var imagesResponse = images.Select(image => new ImageResponse
+            {
+                Id = image.Id,
+                Url = image.Url
+            });
+            
+            return Ok(new CampgroundResponse
+            {
+                Id = campground.Id,
+                UserId = campground.UserId,
+                Name = campground.Name,
+                Price = campground.Price,
+                Description = campground.Description,
+                DateCreated = campground.DateCreated,
+                Comments = commentsResponse,
+                Images = imagesResponse
+            });
+        }
+        
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<CampgroundResponse>>> Get()
+        {
+            var campground = await _campgroundsRepository.GetAllAsync();
+            var images = await _imagesRepository.GetAsync();
+
+            var response = campground.Select(campground => new ShortCampgroundResponse
+            {
+                Id = campground.Id,
+                UserId = campground.UserId,
+                Name = campground.Name,
+                Price = campground.Price,
+                Description = campground.Description,
+                DateCreated = campground.DateCreated,
+                DefaultImageUrl = images.FirstOrDefault(image => image.CampgroundId == campground.Id)?.Url
+            });
+                
+            return Ok(response);
+        }
+        
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<CreateCampgroundResponse>> CreateCampground(CreateCampgroundRequest request)
+        public async Task<ActionResult<CreateCampgroundResponse>> Create(CreateCampgroundRequest request)
         {
             var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
 

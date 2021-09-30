@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Domain.Clients.Firebase.Models
 {
-    public class SignUpRequest
+    public class FirebaseSignUpRequest
     {
         [JsonPropertyName("email")]
         public string Email { get; set; }

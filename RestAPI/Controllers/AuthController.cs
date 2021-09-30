@@ -1,11 +1,9 @@
-using System;
 using System.Threading.Tasks;
 using Contracts.Models.Request;
 using Contracts.Models.Response;
-using Domain.Clients.Firebase;
+using Domain.Exceptions;
+using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
-using Persistence.Models;
-using Persistence.Repositories;
 using SignUpRequest = Contracts.Models.Request.SignUpRequest;
 using SignUpResponse = Contracts.Models.Response.SignUpResponse;
 
@@ -15,55 +13,34 @@ namespace RestAPI.Controllers
     [Route("auth")]
     public class AuthController : ControllerBase
     {
-        private readonly IFirebaseClient _firebaseClient;
-        private readonly IUsersRepository _usersRepository;
-
-        public AuthController(IFirebaseClient firebaseClient, IUsersRepository usersRepository)
+        private readonly IAuthService _authService;
+        
+        public AuthController(IAuthService authService)
         {
-            _firebaseClient = firebaseClient;
-            _usersRepository = usersRepository;
+            _authService = authService;
         }
         
         [HttpPost]
         [Route("signUp")]
         public async Task<ActionResult<SignUpResponse>> SignUp(SignUpRequest request)
         {
-            var user = await _firebaseClient.SignUpAsync(request.Email, request.Password);
-
-            var userReadModel = new UserReadModel
+            try
             {
-                Id = Guid.NewGuid(),
-                FirebaseId = user.FirebaseId,
-                Username = request.Username,
-                Email = user.Email,
-                DateCreated = DateTime.Now
-            };
+                var response = await _authService.SignUpAsync(request);
 
-            await _usersRepository.SaveAsync(userReadModel);
-            
-            return new SignUpResponse
+                return response;
+            }
+            catch (FirebaseException e)
             {
-                Id = userReadModel.Id,
-                Email = userReadModel.Email,
-                Username = userReadModel.Username,
-                DateCreated = userReadModel.DateCreated
-            };
+                return BadRequest(e.Message);
+            }
         }
         
         [HttpPost]
         [Route("signIn")]
         public async Task<ActionResult<SignInResponse>> SignIn(SignInRequest request)
         {
-            var user = await _firebaseClient.SignInAsync(request.Email, request.Password);
-
-            var userReadModel = await _usersRepository.GetAsync(user.FirebaseId);
-            
-            return new SignInResponse
-            {
-                Username = userReadModel.Username,
-                Email = user.Email,
-                IdToken = user.IdToken
-            };
+            return await _authService.SignInAsync(request);
         }
     }
 }

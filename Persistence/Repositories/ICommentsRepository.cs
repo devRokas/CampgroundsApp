@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Persistence.Models;
 
@@ -8,9 +9,9 @@ namespace Persistence.Repositories
     {
         Task<int> SaveOrUpdateAsync(CommentReadModel model);
         
-        Task<CampgroundReadModel> GetAsync(Guid campgroundId);
+        Task<IEnumerable<CommentReadModel>> GetAsync(Guid campgroundId);
 
-        Task<CampgroundReadModel> GetAsync(Guid id, Guid userId);
+        Task<IEnumerable<CommentReadModel>> GetAsync(Guid id, Guid userId);
         
         Task<int> DeleteAsync(Guid id, Guid userId);
     }
