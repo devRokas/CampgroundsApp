@@ -45,9 +45,18 @@ namespace Domain.Services
             };
         }
 
-        public Task<SignInResponse> SignInAsync(SignInRequest request)
+        public async Task<SignInResponse> SignInAsync(SignInRequest request)
         {
-            throw new System.NotImplementedException();
+            var firebaseSignInResponse = await _firebaseClient.SignInAsync(request.Email, request.Password);
+
+            var user = await _usersRepository.GetAsync(firebaseSignInResponse.FirebaseId);
+
+            return new SignInResponse
+            {
+                Username = user.Username,
+                Email = user.Email,
+                IdToken = firebaseSignInResponse.IdToken
+            };
         }
     }
 }
