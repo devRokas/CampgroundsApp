@@ -12,5 +12,14 @@ namespace Domain.Clients.Firebase.Models
         
         [JsonPropertyName("localId")]
         public string FirebaseId { get; set; }
+
+        public Difficulty Difficulty { get; set; }
+    }
+
+    public enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard
     }
 }

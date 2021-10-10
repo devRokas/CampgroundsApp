@@ -23,7 +23,7 @@ namespace Domain.Services
         public async Task<SignUpResponse> SignUpAsync(SignUpRequest request)
         {
             var user = await _firebaseClient.SignUpAsync(request.Email, request.Password);
-                
+            
             var userReadModel = new UserReadModel
             {
                 Id = Guid.NewGuid(),
